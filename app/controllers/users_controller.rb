@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     #(user + given params).save
     if @user.save
       # 保存の成功をここで扱う。
-      
+      log_in @user
       flash[:success] = "Welcome to the Sample App!"
       
       #GET "/users/#{@user.id}"
