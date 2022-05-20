@@ -7,8 +7,9 @@ class User < ApplicationRecord
                     uniqueness:true
   
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
-  
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  # パスワードが空のままでも更新できるようにする
+
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
